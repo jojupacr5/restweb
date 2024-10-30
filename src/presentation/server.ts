@@ -24,6 +24,8 @@ export class Server {
   async start() {
 
     //* Middleweares
+    this.app.use(express.json()); // esto permite mandar formato raw en json
+    this.app.use(express.urlencoded({ extended: true })); // esto permite el x-www-form-urlencoded
 
     //* Public Folder
     this.app.use( express.static( this.publicPath ) );
